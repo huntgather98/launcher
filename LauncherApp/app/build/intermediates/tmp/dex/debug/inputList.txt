@@ -1,0 +1,3 @@
+C:\Users\tanderson\AndroidstudioProjects\LauncherApp\app\build\intermediates\classes\debug
+C:\Users\tanderson\AndroidstudioProjects\LauncherApp\app\build\intermediates\pre-dexed\debug\joystickview-8c04243881a0fe2e1ee2330dda8a917f0be14912.jar
+C:\Users\tanderson\AndroidstudioProjects\LauncherApp\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-045b093bf7777404ae536cbbda60c6f609586779.jar

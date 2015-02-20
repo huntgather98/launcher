@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\tanderson\AndroidstudioProjects\LauncherApp\app\libs\joystickview.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3e6510065a4867c6d4a9e2410873bbe8baa7a860">
+        <dex dex="C:\Users\tanderson\AndroidstudioProjects\LauncherApp\app\build\intermediates\pre-dexed\debug\joystickview-8c04243881a0fe2e1ee2330dda8a917f0be14912.jar" />
+    </item>
+    <item
+        jar="C:\Users\tanderson\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="C:\Users\tanderson\AndroidstudioProjects\LauncherApp\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-045b093bf7777404ae536cbbda60c6f609586779.jar" />
+    </item>
+
+</items>
