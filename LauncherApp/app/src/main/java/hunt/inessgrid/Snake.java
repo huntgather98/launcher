@@ -41,6 +41,7 @@ public class Snake extends Activity implements OnTouchListener{
 	int viewWidth, viewHeight, bitmapHeight, bitmapWidth;
 
 	private ConnectedThread mConnectedThread;
+    private Throttler joystickThrottler;
 
 	private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
@@ -72,39 +73,25 @@ public class Snake extends Activity implements OnTouchListener{
                 if (power > deadzone) {
                     if (angle >= -45 && angle <= 45) {
                         Log.d(TAG, "UP");
-                        mConnectedThread.write("U" + speed);
+                        joystickThrottler.write("U" + speed);
                     } else if (angle > -135 && angle < -45) {
                         Log.d(TAG, "LEFT");
-                        mConnectedThread.write("L" + speed);
+                        joystickThrottler.write("L" + speed);
                     } else if (angle < 135 && angle > 45){
                         Log.d(TAG, "RIGHT");
-                        mConnectedThread.write("R" + speed);
+                        joystickThrottler.write("R" + speed);
                     } else {
                         Log.d(TAG, "DOWN");
-                        mConnectedThread.write("D" + speed);
+                        joystickThrottler.write("D" + speed);
                     }
                 } else {
                     Log.d(TAG, "UP");
-                    mConnectedThread.write("S");
+                    joystickThrottler.write("S");
                 }
-                Log.d(TAG, "Angle: " + angle + " Power: " + power + " Direction: " + direction);
             }
         }, JoystickView.DEFAULT_LOOP_INTERVAL);
 		viewWidth = screenWidth;
 		viewHeight = screenWidth;
-
-		h = new Handler() {
-			public void handleMessage(android.os.Message msg) {
-				switch (msg.what) {
-				case RECIEVE_MESSAGE:                                                   // if receive massage
-					byte[] readBuf = (byte[]) msg.obj;                                // and clear
-					byteReceived = readBuf[0];
-					break;
-				}
-			};
-		};
-
-
 	}
 
 	@Override
@@ -178,6 +165,7 @@ public class Snake extends Activity implements OnTouchListener{
 
 		mConnectedThread = new ConnectedThread(btSocket);
 		mConnectedThread.start();
+        joystickThrottler = new Throttler(mConnectedThread.mmOutStream, 1);
 	}
 	
 	
@@ -203,8 +191,8 @@ public class Snake extends Activity implements OnTouchListener{
 	}
 
 	private class ConnectedThread extends Thread {
-		private final InputStream mmInStream;
-		private final OutputStream mmOutStream;
+		public final InputStream mmInStream;
+		public final OutputStream mmOutStream;
 
 		public ConnectedThread(BluetoothSocket socket) {
 			InputStream tmpIn = null;
