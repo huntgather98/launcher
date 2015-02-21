@@ -22,10 +22,7 @@ public final class R {
         public static final int viewbackground2=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f080021;
-        public static final int btn1=0x7f08001d;
-        public static final int btn2=0x7f08001e;
-        public static final int btn3=0x7f08001f;
+        public static final int action_settings=0x7f08001f;
         public static final int btn8Ball=0x7f08000d;
         public static final int btnAllOff=0x7f080005;
         public static final int btnAnimations=0x7f080000;
@@ -34,12 +31,13 @@ public final class R {
         public static final int btnDoodle=0x7f080004;
         public static final int btnErase=0x7f080013;
         public static final int btnFast=0x7f08001b;
+        public static final int btnFire=0x7f08001e;
         public static final int btnLaunchAnimations=0x7f080006;
         public static final int btnLaunchDoodle=0x7f080010;
         public static final int btnLaunchLife=0x7f080015;
         public static final int btnLaunchMagic8Ball=0x7f08000c;
-        public static final int btnLaunchSnake=0x7f080020;
         public static final int btnLife=0x7f080002;
+        public static final int btnLoad=0x7f08001d;
         public static final int btnMagic8Ball=0x7f080003;
         public static final int btnMed=0x7f08001a;
         public static final int btnNew=0x7f080016;

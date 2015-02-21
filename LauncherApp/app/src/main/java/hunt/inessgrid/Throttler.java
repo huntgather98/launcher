@@ -16,10 +16,10 @@ public class Throttler extends Thread {
     private static final String TAG = "Throttler";
     private long lastWriteTime;
     private final OutputStream mmOutStream;
-    private int maxFrequency;
+    private double maxFrequency;
 
     // takes in the output stream to write to and the max frequency to send at.
-    public Throttler(OutputStream stream, int mF) {
+    public Throttler(OutputStream stream, double mF) {
         mmOutStream = stream;
         maxFrequency = mF;
     }

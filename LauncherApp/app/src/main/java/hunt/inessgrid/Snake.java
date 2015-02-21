@@ -25,7 +25,17 @@ import com.zerokol.views.JoystickView;
 import com.zerokol.views.JoystickView.OnJoystickMoveListener;
 
 public class Snake extends Activity implements OnTouchListener{
-	Button btnLaunchSnake;
+    final double JOYSTICK_SEND_FREQUENCY = 10;
+    final int deadzone = 20;
+    final int speed1end = 50;
+    final int speed2end = 80;
+    final int speed3end = 100;
+    final String UP_COMMAND = "U";
+    final String LEFT_COMMAND = "L";
+    final String RIGHT_COMMAND = "R";
+    final String DOWN_COMMAND = "D";
+
+	Button btnFire, btnLoad;
     JoystickView joystick;
 	
 	private static final String TAG = "LauncherApp";
@@ -36,9 +46,6 @@ public class Snake extends Activity implements OnTouchListener{
 	private BluetoothSocket btSocket = null;
 	private StringBuilder sb = new StringBuilder();
 	private Vibrator myVib;
-	
-	int screenWidth, screenHeight;
-	int viewWidth, viewHeight, bitmapHeight, bitmapWidth;
 
 	private ConnectedThread mConnectedThread;
     private Throttler joystickThrottler;
@@ -54,55 +61,77 @@ public class Snake extends Activity implements OnTouchListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.snake);
 
-		btnLaunchSnake = (Button) findViewById(R.id.btnLaunchSnake);
-		btnLaunchSnake.setOnTouchListener(this);
+		btnFire = (Button) findViewById(R.id.btnFire);
+		btnFire.setOnTouchListener(this);
+        btnLoad = (Button) findViewById(R.id.btnLoad);
+        btnLoad.setOnTouchListener(this);
+
+        
 
         joystick = (JoystickView) findViewById(R.id.joystickView);
 
 		DisplayMetrics metrics = this.getResources().getDisplayMetrics();
 		myVib = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-		screenWidth = metrics.widthPixels;
-		screenHeight = metrics.heightPixels;
 
         joystick.setOnJoystickMoveListener(new OnJoystickMoveListener() {
             @Override
             public void onValueChanged(int angle, int power, int direction) {
-                final int deadzone = 20;
-                int speed = power / 25;
+                int speed = 0;
+                String command;
+
+                if (power <= speed1end) {
+                    speed = 1;
+                } else if (power <= speed2end) {
+                    speed = 2;
+                } else if (power <= speed3end) {
+                    speed = 3;
+                } else {
+                    speed = 0;
+                }
 
                 if (power > deadzone) {
                     if (angle >= -45 && angle <= 45) {
-                        Log.d(TAG, "UP");
-                        joystickThrottler.write("U" + speed);
+                        command = UP_COMMAND;
                     } else if (angle > -135 && angle < -45) {
-                        Log.d(TAG, "LEFT");
-                        joystickThrottler.write("L" + speed);
+                        command = LEFT_COMMAND;
                     } else if (angle < 135 && angle > 45){
-                        Log.d(TAG, "RIGHT");
-                        joystickThrottler.write("R" + speed);
+                        command = RIGHT_COMMAND;
                     } else {
-                        Log.d(TAG, "DOWN");
-                        joystickThrottler.write("D" + speed);
+                        command = DOWN_COMMAND;
                     }
+                    joystickThrottler.write(command + speed);
                 } else {
-                    Log.d(TAG, "UP");
                     joystickThrottler.write("S");
                 }
             }
-        }, JoystickView.DEFAULT_LOOP_INTERVAL);
-		viewWidth = screenWidth;
-		viewHeight = screenWidth;
+        }, JoystickView.DEFAULT_LOOP_INTERVAL/10);
+
+        h = new Handler() {
+            public void handleMessage(android.os.Message msg) {
+                switch (msg.what) {
+                    case RECIEVE_MESSAGE: // if receive massage
+                        byte[] readBuf = (byte[]) msg.obj; // and clear
+                        byteReceived = readBuf[0];
+                        break;
+                    }
+                };
+            };
 	}
 
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 
-	     if (v.getId() == R.id.btnLaunchSnake){
+	     if (v.getId() == R.id.btnFire){
 			if (event.getAction() == MotionEvent.ACTION_UP){
-                mConnectedThread.write("S");
+                mConnectedThread.write("F");
                 return true;
 			}
-		}
+		} else if (v.getId() == R.id.btnLoad) {
+             if (event.getAction() == MotionEvent.ACTION_UP){
+                 mConnectedThread.write("L");
+                 return true;
+             }
+         }
 		return false;
 	}
 
@@ -165,7 +194,7 @@ public class Snake extends Activity implements OnTouchListener{
 
 		mConnectedThread = new ConnectedThread(btSocket);
 		mConnectedThread.start();
-        joystickThrottler = new Throttler(mConnectedThread.mmOutStream, 1);
+        joystickThrottler = new Throttler(mConnectedThread.mmOutStream, JOYSTICK_SEND_FREQUENCY);
 	}
 	
 	
