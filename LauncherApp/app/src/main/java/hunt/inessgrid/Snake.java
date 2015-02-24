@@ -25,7 +25,7 @@ import com.zerokol.views.JoystickView;
 import com.zerokol.views.JoystickView.OnJoystickMoveListener;
 
 public class Snake extends Activity implements OnTouchListener{
-    final double JOYSTICK_SEND_FREQUENCY = 10;
+    final double JOYSTICK_SEND_FREQUENCY = 20;
     final int deadzone = 20;
     final int speed1end = 50;
     final int speed2end = 80;
@@ -66,7 +66,7 @@ public class Snake extends Activity implements OnTouchListener{
         btnLoad = (Button) findViewById(R.id.btnLoad);
         btnLoad.setOnTouchListener(this);
 
-        
+
 
         joystick = (JoystickView) findViewById(R.id.joystickView);
 
@@ -99,9 +99,18 @@ public class Snake extends Activity implements OnTouchListener{
                     } else {
                         command = DOWN_COMMAND;
                     }
-                    joystickThrottler.write(command + speed);
+
+                    try {
+                        joystickThrottler.write(command);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 } else {
-                    joystickThrottler.write("S");
+                    try {
+                        joystickThrottler.write("");
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }, JoystickView.DEFAULT_LOOP_INTERVAL/10);
@@ -128,7 +137,7 @@ public class Snake extends Activity implements OnTouchListener{
 			}
 		} else if (v.getId() == R.id.btnLoad) {
              if (event.getAction() == MotionEvent.ACTION_UP){
-                 mConnectedThread.write("L");
+                 mConnectedThread.write("C");
                  return true;
              }
          }

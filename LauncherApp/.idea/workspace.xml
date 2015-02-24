@@ -60,14 +60,14 @@
       <file leaf-file-name="Snake.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/hunt/inessgrid/Snake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70247936" vertical-offset="816" max-vertical-offset="4692">
-              <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.49173555" vertical-offset="2040" max-vertical-offset="4845">
+              <caret line="134" column="41" selection-start-line="134" selection-start-column="41" selection-end-line="134" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2337#3476#0" expanded="true" />
-                <element signature="e#3465#3466#0" expanded="true" />
-                <element signature="e#3531#3919#0" expanded="true" />
-                <element signature="e#3903#3904#0" expanded="true" />
+                <element signature="e#2329#3764#0" expanded="true" />
+                <element signature="e#3753#3754#0" expanded="true" />
+                <element signature="e#3819#4207#0" expanded="true" />
+                <element signature="e#4191#4192#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -89,10 +89,14 @@
       <file leaf-file-name="Throttler.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/hunt/inessgrid/Throttler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1360">
+              <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1364#2329#0" expanded="true" />
+                <element signature="e#2318#2319#0" expanded="true" />
+                <element signature="e#2390#2391#0" expanded="true" />
+                <element signature="e#2424#2425#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -648,8 +652,8 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/hunt/inessgrid/Throttler.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/snake.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/hunt/inessgrid/Throttler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/hunt/inessgrid/Snake.java" />
       </list>
     </option>
@@ -1353,10 +1357,10 @@
           <caret line="87" column="48" selection-start-line="87" selection-start-column="48" selection-end-line="87" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2337#3476#0" expanded="true" />
-            <element signature="e#3465#3466#0" expanded="true" />
-            <element signature="e#3531#3919#0" expanded="true" />
-            <element signature="e#3903#3904#0" expanded="true" />
+            <element signature="e#2329#3764#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3819#4207#0" expanded="true" />
+            <element signature="e#4191#4192#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1375,10 +1379,10 @@
           <caret line="116" column="38" selection-start-line="116" selection-start-column="38" selection-end-line="116" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2337#3476#0" expanded="true" />
-            <element signature="e#3465#3466#0" expanded="true" />
-            <element signature="e#3531#3919#0" expanded="true" />
-            <element signature="e#3903#3904#0" expanded="true" />
+            <element signature="e#2329#3764#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3819#4207#0" expanded="true" />
+            <element signature="e#4191#4192#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1588,16 +1592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hunt/inessgrid/Throttler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/snake.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -1609,16 +1603,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hunt/inessgrid/Snake.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hunt/inessgrid/Throttler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70247936" vertical-offset="816" max-vertical-offset="4692">
-          <caret line="68" column="8" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1360">
+          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2337#3476#0" expanded="true" />
-            <element signature="e#3465#3466#0" expanded="true" />
-            <element signature="e#3531#3919#0" expanded="true" />
-            <element signature="e#3903#3904#0" expanded="true" />
+            <element signature="e#1364#2329#0" expanded="true" />
+            <element signature="e#2318#2319#0" expanded="true" />
+            <element signature="e#2390#2391#0" expanded="true" />
+            <element signature="e#2424#2425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hunt/inessgrid/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49173555" vertical-offset="2040" max-vertical-offset="4845">
+          <caret line="134" column="41" selection-start-line="134" selection-start-column="41" selection-end-line="134" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2329#3764#0" expanded="true" />
+            <element signature="e#3753#3754#0" expanded="true" />
+            <element signature="e#3819#4207#0" expanded="true" />
+            <element signature="e#4191#4192#0" expanded="true" />
           </folding>
         </state>
       </provider>
