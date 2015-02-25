@@ -61,43 +61,23 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:25:17
 	android:name
 		ADDED from AndroidManifest.xml:25:27
-activity#hunt.inessgrid.Animations
+activity#hunt.inessgrid.MainMenu
 ADDED from AndroidManifest.xml:28:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:28:104
+		ADDED from AndroidManifest.xml:28:100
 	android:label
-		ADDED from AndroidManifest.xml:28:45
+		ADDED from AndroidManifest.xml:28:43
 	android:theme
-		ADDED from AndroidManifest.xml:28:72
+		ADDED from AndroidManifest.xml:28:68
 	android:name
 		ADDED from AndroidManifest.xml:28:19
-activity#hunt.inessgrid.Life
+activity#hunt.inessgrid.Manual
 ADDED from AndroidManifest.xml:29:9
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:29:100
+		ADDED from AndroidManifest.xml:29:104
 	android:label
-		ADDED from AndroidManifest.xml:29:39
+		ADDED from AndroidManifest.xml:29:41
 	android:theme
-		ADDED from AndroidManifest.xml:29:68
+		ADDED from AndroidManifest.xml:29:72
 	android:name
 		ADDED from AndroidManifest.xml:29:19
-activity#hunt.inessgrid.Magic8Ball
-ADDED from AndroidManifest.xml:30:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:30:106
-	android:label
-		ADDED from AndroidManifest.xml:30:45
-	android:theme
-		ADDED from AndroidManifest.xml:30:74
-	android:name
-		ADDED from AndroidManifest.xml:30:19
-activity#hunt.inessgrid.Doodle
-ADDED from AndroidManifest.xml:31:9
-	android:screenOrientation
-		ADDED from AndroidManifest.xml:31:96
-	android:label
-		ADDED from AndroidManifest.xml:31:41
-	android:theme
-		ADDED from AndroidManifest.xml:31:64
-	android:name
-		ADDED from AndroidManifest.xml:31:19

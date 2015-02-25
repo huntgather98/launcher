@@ -10,6 +10,8 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,17 +27,14 @@ import com.zerokol.views.JoystickView;
 import com.zerokol.views.JoystickView.OnJoystickMoveListener;
 
 public class Snake extends Activity implements OnTouchListener{
-    final double JOYSTICK_SEND_FREQUENCY = 20;
+    long sleepTime;
     final int deadzone = 20;
     final int speed1end = 50;
     final int speed2end = 80;
     final int speed3end = 100;
-    final String UP_COMMAND = "U";
-    final String LEFT_COMMAND = "L";
-    final String RIGHT_COMMAND = "R";
-    final String DOWN_COMMAND = "D";
+    String upCommand, downCommand, leftCommand, rightCommand, loadCommand, fireCommand, address;
 
-	Button btnFire, btnLoad;
+	Button btnFire, btnLoad, btnSettings, btnManualControl;
     JoystickView joystick;
 	
 	private static final String TAG = "LauncherApp";
@@ -52,8 +51,6 @@ public class Snake extends Activity implements OnTouchListener{
 
 	private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
-	private static String address = "00:14:01:03:3A:EB";
-
 	private byte byteReceived;
 
 	@Override
@@ -65,8 +62,10 @@ public class Snake extends Activity implements OnTouchListener{
 		btnFire.setOnTouchListener(this);
         btnLoad = (Button) findViewById(R.id.btnLoad);
         btnLoad.setOnTouchListener(this);
-
-
+        btnSettings = (Button) findViewById(R.id.btnSettings);
+        btnSettings.setOnTouchListener(this);
+        btnManualControl = (Button) findViewById(R.id.btnManualControl);
+        btnManualControl.setOnTouchListener(this);
 
         joystick = (JoystickView) findViewById(R.id.joystickView);
 
@@ -91,25 +90,23 @@ public class Snake extends Activity implements OnTouchListener{
 
                 if (power > deadzone) {
                     if (angle >= -45 && angle <= 45) {
-                        command = UP_COMMAND;
+                        command = upCommand;
                     } else if (angle > -135 && angle < -45) {
-                        command = LEFT_COMMAND;
+                        command = leftCommand;
                     } else if (angle < 135 && angle > 45){
-                        command = RIGHT_COMMAND;
+                        command = rightCommand;
                     } else {
-                        command = DOWN_COMMAND;
+                        command = downCommand;
                     }
 
                     try {
                         joystickThrottler.write(command);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
                 } else {
                     try {
                         joystickThrottler.write("");
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
                 }
             }
@@ -132,13 +129,23 @@ public class Snake extends Activity implements OnTouchListener{
 
 	     if (v.getId() == R.id.btnFire){
 			if (event.getAction() == MotionEvent.ACTION_UP){
-                mConnectedThread.write("F");
+                mConnectedThread.write(fireCommand);
                 return true;
 			}
 		} else if (v.getId() == R.id.btnLoad) {
              if (event.getAction() == MotionEvent.ACTION_UP){
-                 mConnectedThread.write("C");
+                 mConnectedThread.write(loadCommand);
                  return true;
+             }
+         } else if (v.getId() == R.id.btnSettings){
+             if (event.getAction() == MotionEvent.ACTION_UP){
+                 Intent intent = new Intent(Snake.this, MainMenu.class);
+                 startActivity(intent);
+             }
+         } else if (v.getId() == R.id.btnManualControl) {
+             if (event.getAction() == MotionEvent.ACTION_UP) {
+                 Intent intent = new Intent(Snake.this, Manual.class);
+                 startActivity(intent);
              }
          }
 		return false;
@@ -163,6 +170,17 @@ public class Snake extends Activity implements OnTouchListener{
 		super.onResume();
 
 		Log.d(TAG, "...onResume - try connect...");
+
+        // load settings
+        SharedPreferences settings = getSharedPreferences("settings", 0);
+        address = settings.getString("ID", "20:14:04:23:26:09");
+        sleepTime = settings.getLong("SleepTime", 100);
+        upCommand = settings.getString("UpCommand", "U");
+        downCommand = settings.getString("DownCommand", "D");
+        leftCommand = settings.getString("LeftCommand", "L");
+        rightCommand = settings.getString("RightCommand", "R");
+        loadCommand = settings.getString("LoadCommand", "C");
+        fireCommand = settings.getString("FireCommand", "F");
 		
 		// Set up a pointer to the remote node using it's address.
 		
@@ -203,7 +221,8 @@ public class Snake extends Activity implements OnTouchListener{
 
 		mConnectedThread = new ConnectedThread(btSocket);
 		mConnectedThread.start();
-        joystickThrottler = new Throttler(mConnectedThread.mmOutStream, JOYSTICK_SEND_FREQUENCY);
+        joystickThrottler = new Throttler(mConnectedThread.mmOutStream, sleepTime);
+
 	}
 	
 	
@@ -215,6 +234,7 @@ public class Snake extends Activity implements OnTouchListener{
 		Log.d(TAG, "...In onPause()...");
 
 		try     {
+            joystickThrottler.terminate();
 			btSocket.close();
 		} catch (IOException e2) {
 			errorExit("Fatal Error", "In onPause() and failed to close socket." + e2.getMessage() + ".");
@@ -270,7 +290,6 @@ public class Snake extends Activity implements OnTouchListener{
 			try {
 				mmOutStream.write(msgBuffer);
 			} catch (IOException e) {
-				Log.d(TAG, "...Error data send: " + e.getMessage() + "...");    
 			}
 		}
 	}

@@ -18,7 +18,7 @@ public class Throttler extends Thread {
     // output stream we will write commands on
     private final OutputStream mmOutStream;
     // maximum frequency to write commands out at
-    private double maxFrequency;
+    private long sleepTime;
     // the string that will be transmitted when timer fires
     private String stringToTransmit;
     // semaphore protecting the stringToTransmit string
@@ -27,9 +27,9 @@ public class Throttler extends Thread {
     private Thread thread;
 
     // takes in the output stream to write to and the max frequency to send at.
-    public Throttler(OutputStream stream, double mF) {
+    public Throttler(OutputStream stream, long s) {
         mmOutStream = stream;
-        maxFrequency = mF;
+        sleepTime = s;
         semaphore = new Semaphore(1);
         stringToTransmit = "";
         this.start();
@@ -46,7 +46,7 @@ public class Throttler extends Thread {
             public void run(){
                 while (true){
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(sleepTime);
                         if (stringToTransmit != "") {
                             semaphore.acquire();
                             Log.d(TAG, "...Data to send: " + stringToTransmit + "...");
@@ -54,13 +54,10 @@ public class Throttler extends Thread {
                             try {
                                 mmOutStream.write(msgBuffer);
                             } catch (IOException e) {
-                                Log.d(TAG, "...Error data send: " + e.getMessage() + "...");
-                                return;
                             }
                             semaphore.release();
                         }
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
                 }
             }

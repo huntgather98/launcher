@@ -10,47 +10,219 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="false"
+        android:layout_centerVertical="false"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:orientation="horizontal" >
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="ID"
+                android:id="@+id/textView1"
+                android:layout_weight="0.5"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtID"
+                android:layout_weight="0.5"
+                android:clickable="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:orientation="horizontal" >
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Frequency"
+                android:id="@+id/textView1"
+                android:layout_weight="0.5"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtSleepTime"
+                android:layout_weight="0.5"
+                android:clickable="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:orientation="horizontal" >
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Up Command"
+                android:id="@+id/textView2"
+                android:layout_weight="0.5"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtUpCommand"
+                android:layout_weight="0.5"
+                android:clickable="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:orientation="horizontal" >
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Down Command"
+                android:id="@+id/textView3"
+                android:layout_weight="0.5"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtDownCommand"
+                android:layout_weight="0.5"
+                android:clickable="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:orientation="horizontal" >
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Left Command"
+                android:id="@+id/textView4"
+                android:layout_weight="0.5"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtLeftCommand"
+                android:layout_weight="0.5"
+                android:clickable="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:orientation="horizontal" >
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Right Command"
+                android:id="@+id/textView5"
+                android:layout_weight="0.5"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtRightCommand"
+                android:layout_weight="0.5"
+                android:clickable="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="false"
-        android:orientation="vertical" >
+        android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/btnAnimations"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="ANIMATIONS" />
-        
-        <Button
-            android:id="@+id/btnWave"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="SNAKE" />
 
-        <Button
-            android:id="@+id/btnLife"
+        <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="GAME OF LIFE" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Load Command"
+            android:id="@+id/textView6"
+            android:layout_weight="0.5"/>
 
-        <Button
-            android:id="@+id/btnMagic8Ball"
+        <EditText
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="MAGIC 8-BALL" />
-        
-        <Button
-            android:id="@+id/btnDoodle"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="DOODLE" />
-        
-        <Button
-            android:id="@+id/btnAllOff"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="ALL OFF" />
+            android:id="@+id/txtLoadCommand"
+            android:layout_weight="0.5"
+            android:clickable="false" />
 
     </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            android:orientation="horizontal" >
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Fire Command"
+                android:id="@+id/textView7"
+                android:layout_weight="0.5"/>
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtFireCommand"
+                android:layout_weight="0.5"
+                android:clickable="false" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

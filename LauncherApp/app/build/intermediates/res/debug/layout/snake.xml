@@ -25,7 +25,7 @@
         android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="false"
-        android:paddingTop="30dp"
+        android:paddingTop="10dp"
         android:orientation="horizontal"
         android:weightSum="1">
 
@@ -54,6 +54,32 @@
             android:layout_weight="0.5"/>
 
     </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Settings"
+            android:textSize="20dp"
+            android:background="#88888888"
+            android:clickable="true"
+            android:layout_weight="0.5"/>
+
+            <Button
+                android:id="@+id/btnManualControl"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Manual Control"
+                android:textSize="20dp"
+                android:background="#88888888"
+                android:clickable="true"
+                android:layout_weight="0.5"/>
 
 	     </LinearLayout>
 

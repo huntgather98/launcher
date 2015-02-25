@@ -25,10 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Animations" android:label="Animations" android:theme="@style/AppTheme" android:screenOrientation="portrait"></activity>
-        <activity android:name="Life" android:label="Game of Life" android:theme="@style/AppTheme" android:screenOrientation="portrait"></activity>
-        <activity android:name="Magic8Ball" android:label="Magic 8-Ball" android:theme="@style/AppTheme" android:screenOrientation="portrait"></activity>
-        <activity android:name="Doodle" android:label="Doodle" android:theme="@style/AppTheme" android:screenOrientation="portrait"></activity>
+        <activity android:name="MainMenu" android:label="Settings" android:theme="@style/AppTheme" android:screenOrientation="portrait"></activity>
+        <activity android:name="Manual" android:label="Manual Control" android:theme="@style/AppTheme" android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

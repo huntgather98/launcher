@@ -27,23 +27,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="hunt.inessgrid.Animations"
-            android:label="Animations"
+            android:name="hunt.inessgrid.MainMenu"
+            android:label="Settings"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="hunt.inessgrid.Life"
-            android:label="Game of Life"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="hunt.inessgrid.Magic8Ball"
-            android:label="Magic 8-Ball"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name="hunt.inessgrid.Doodle"
-            android:label="Doodle"
+            android:name="hunt.inessgrid.Manual"
+            android:label="Manual Control"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
     </application>
